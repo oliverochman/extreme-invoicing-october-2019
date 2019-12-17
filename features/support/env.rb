@@ -10,3 +10,8 @@ rescue NameError
 end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+World FactoryBot::Syntax::Methods
+
+Warden.test_mode!
+World Warden::Test::Helpers
+After { Warden.test_reset! }
