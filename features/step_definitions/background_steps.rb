@@ -10,7 +10,3 @@ Given('I am logged in as {string}') do |email|
   user = User.find_by(email: email) || create(:user, email: email, password: 'password')
   login_as user
 end
-
-Given("I am on the invoices page") do
-  visit invoices_path
-end

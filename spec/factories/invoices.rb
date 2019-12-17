@@ -6,6 +6,6 @@ FactoryBot.define do
     tax { 1.5 }
     total { 1.5 }
     paid_for { "" }
-    user { nil }
+    user
   end
 end
