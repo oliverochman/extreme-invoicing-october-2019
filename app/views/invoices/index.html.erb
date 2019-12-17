@@ -1,1 +1,11 @@
-<%= button_to 'Create new invoice' %>
+<%= form_with controller: :invoices %>
+<%= link_to 'Create new invoice', new_invoice_path, remote: true %>
+
+<h2>Your invoices</h2>
+<% @invoices.each do |invoice| %>
+  <ul>
+    Invoice number: <%= invoice.id %>
+    Invoice date: <%= invoice.date %>
+    Invoice due date: <%= invoice.due_date %>
+  </ul>
+<% end %>

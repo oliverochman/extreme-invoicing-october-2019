@@ -6,8 +6,8 @@ Feature: User can create invoice
       | user@user.com | password |
 
     And I am logged in as "user@user.com"
-    And I am on the landing page
+    And I am on the invoices page
 
   Scenario: User can create an invoice
     When I click on "Create new invoice"
-    Then I should see "New invoice created”
+    Then I should see "Invoice number: 1"

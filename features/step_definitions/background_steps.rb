@@ -11,6 +11,6 @@ Given('I am logged in as {string}') do |email|
   login_as user
 end
 
-Given("I am on the landing page") do
-  visit root_path
+Given("I am on the invoices page") do
+  visit invoices_path
 end
