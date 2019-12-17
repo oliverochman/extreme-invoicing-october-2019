@@ -10,4 +10,4 @@ Feature: User can create invoice
 
   Scenario: User can create an invoice
     When I click on "Create new invoice"
-    Then I should see "Invoice number: 1"
+    Then I should see "Invoice number:"
