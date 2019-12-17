@@ -25,7 +25,7 @@ module ExtremeInvoicingOctober2019
       generate.helper_specs false
       generate.routing_specs false
       generate.controller_specs false
-      generator.system_tests = false
+      generate.system_tests = false
     end
   end
 end
