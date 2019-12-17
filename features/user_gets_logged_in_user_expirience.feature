@@ -4,7 +4,12 @@ Feature: User gets logged in user experience
   I would like to be directed to the service properly
   
   Background: 
-    Given I am on the index page
+      Given the following user exist
+      | email         | password |
+      | user@user.com | password |
+      
+    And I am logged in as "user@user.com"  
+    And I am on the index page
 
   Scenario: User is logged in and navbar updates accordingly
     Then I should see "EXTREME INVOICING"

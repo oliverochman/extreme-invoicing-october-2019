@@ -8,15 +8,14 @@ Feature: User can create invoice
       | email         | password |
       | user@user.com | password |
 
-    And I am on the index page
-
-
   Scenario: Logged in user can create an invoice
     Given I am logged in as "user@user.com"
+    And I am on the index page
     And I click on "Create invoice"
     And I click on "Create new invoice"
     Then I should see "Invoice number:"
 
   Scenario: Visitor can not create an invoice
+    Given I am on the index page
     When I click on "Create invoice"
     Then I should see "You need to sign in or sign up before continuing."
