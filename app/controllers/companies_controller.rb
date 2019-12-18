@@ -1,14 +1,13 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    company = Company.find(current_user[:id])
-    rescue ActiveRecord::RecordNotFound
-    binding.pry
+    company = Company.find(current_user[:id]) rescue nil
 
     if company == nil
       redirect_to new_company_path
     else
-      redirect_to company_path
+      redirect_to company_path(current_user[:id])
     end
   end
 
@@ -32,6 +31,6 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params.require(:company).permit(:name, :identification_no, :vat_no, :address, :postcode, :city, :phone).merge(:user_id => current_user[:id])
+    params.require(:company).permit(:name, :org_no, :vat_no, :address, :postcode, :city, :phone).merge(:user_id => current_user[:id])
   end
 end
