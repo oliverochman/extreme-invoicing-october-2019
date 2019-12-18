@@ -33,6 +33,6 @@ Feature: User can store its company data
     And I fill in "Name" with "Bob"
     And I click on "Update profile"
     Then I should be on the Invoices page
-    And I am logged in as "user@user.com" 
     And I click on "Company Profile"
     Then I should be on the companies page
+    And I should see "Bob"
