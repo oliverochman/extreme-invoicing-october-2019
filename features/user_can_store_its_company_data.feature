@@ -14,4 +14,6 @@ Feature: User can store its company data
   Scenario: 
     When I click on "Profile"
     Then I should be on the profile page
-    Then I should see "Company name"
+    And I should see "Company name"
+    And I fill in "Company name" with "Bob"
+    And I click on "Update profile"
