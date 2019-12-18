@@ -1,11 +1,14 @@
 class CompaniesController < ApplicationController
 
   def index
-    companies = Company.all
-    if companies.empty?
+    company = Company.find(current_user[:id])
+    rescue ActiveRecord::RecordNotFound
+    binding.pry
+
+    if company == nil
       redirect_to new_company_path
     else
-      redirect_to company_path(Company.find_by(current_user[:user_id]))
+      redirect_to company_path
     end
   end
 
@@ -24,7 +27,7 @@ class CompaniesController < ApplicationController
   end 
 
   def show
-    @company = Company.find_by(current_user[:user_id])
+    @company = Company.find(current_user[:id])
   end
 
   private

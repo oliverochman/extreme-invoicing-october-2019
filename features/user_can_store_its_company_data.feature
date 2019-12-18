@@ -12,8 +12,18 @@ Feature: User can store its company data
     And I am on the index page
     
   Scenario: 
-    When I click on "Profile"
-    Then I should be on the profile page
+    When I click on "Company Profile"
+    Then I should be on the Company Profile page
     And I should see "Name"
     And I fill in "Name" with "Bob"
     And I click on "Update profile"
+    Then I should be on the Invoices page
+    And I should see "Company information added."
+
+
+  Scenario: 
+    When I click on "Company Profile"
+    Then I should be on the Company Profile page
+    And I click on "Update profile"
+    Then I should see "Something went wrong. Try again."
+

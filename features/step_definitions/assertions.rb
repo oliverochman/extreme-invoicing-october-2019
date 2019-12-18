@@ -10,6 +10,10 @@ Then("I should not see {string}") do |content|
   expect(page).not_to have_content content
 end
 
-Then("I should be on the profile page") do
-  expect(current_path).to eq companies_path
+Then("I should be on the Company Profile page") do
+  expect(current_path).to eq new_company_path
+end
+
+Then("I should be on the Invoices page") do
+  expect(current_path).to eq invoices_path
 end
