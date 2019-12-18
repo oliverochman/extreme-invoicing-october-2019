@@ -7,6 +7,6 @@ FactoryBot.define do
     postcode { "MyString" }
     city { "MyString" }
     phone { 1 }
-    user { nil }
+    user
   end
 end

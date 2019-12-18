@@ -11,5 +11,5 @@ Then("I should not see {string}") do |content|
 end
 
 Then("I should be on the profile page") do
-  expect(current_path).to eq company_index_path
+  expect(current_path).to eq companies_path
 end
