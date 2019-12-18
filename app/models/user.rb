@@ -3,4 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :invoices
+  has_one :company
 end
