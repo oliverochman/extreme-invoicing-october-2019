@@ -1,5 +1,5 @@
 <nav>
-  <% if user_signed_in? ? %>
+  <% if user_signed_in? %>
     <%= link_to 'EXTREME INVOICING', invoices_path %>
   <% else %>
     <%= link_to 'EXTREME INVOICING', root_path %>
