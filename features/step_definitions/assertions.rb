@@ -11,5 +11,5 @@ Then("I should not see {string}") do |content|
 end
 
 Then("I should be on the profile page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_path).to eq profile_index_path
 end
