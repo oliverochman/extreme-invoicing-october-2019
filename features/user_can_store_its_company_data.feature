@@ -11,7 +11,7 @@ Feature: User can store its company data
     And I am logged in as "user@user.com"  
     And I am on the index page
     
-  Scenario: 
+  Scenario: Visitor can save his company information
     When I click on "Company Profile"
     Then I should be on the Company Profile page
     And I should see "Name"
@@ -21,9 +21,18 @@ Feature: User can store its company data
     And I should see "Company information added."
 
 
-  Scenario: 
+  Scenario: Company Name must be filled in
     When I click on "Company Profile"
     Then I should be on the Company Profile page
     And I click on "Update profile"
-    Then I should see "Something went wrong. Try again."
+    Then I should see "Something went wrong. Company Name is required."
 
+  Scenario: User can view saved company information
+    When I click on "Company Profile"
+    Then I should be on the Company Profile page
+    And I fill in "Name" with "Bob"
+    And I click on "Update profile"
+    Then I should be on the Invoices page
+    And I am logged in as "user@user.com" 
+    And I click on "Company Profile"
+    Then I should be on the companies page

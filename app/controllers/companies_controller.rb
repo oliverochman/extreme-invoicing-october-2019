@@ -1,13 +1,12 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
-
+  
   def index
-    company = Company.find(current_user[:id]) rescue nil
-
+    company = current_user.company
     if company == nil
       redirect_to new_company_path
     else
-      redirect_to company_path(current_user[:id])
+      redirect_to company_path(Company.ids)
     end
   end
 
@@ -21,16 +20,16 @@ class CompaniesController < ApplicationController
     if company.persisted?
       redirect_to invoices_path, notice: "Company information added."
     else
-      redirect_to new_company_path, notice: "Something went wrong. Try again."
+      redirect_to new_company_path, notice: "Something went wrong. Company Name is required."
     end
   end 
 
   def show
-    @company = Company.find(current_user[:id])
+    @company = current_user.company
   end
 
   private
   def company_params
-    params.require(:company).permit(:name, :org_no, :vat_no, :address, :postcode, :city, :phone).merge(:user_id => current_user[:id])
+    params.require(:company).permit(:name, :identification_no, :vat_no, :address, :postcode, :city, :phone).merge(:user_id => current_user[:id])
   end
 end
