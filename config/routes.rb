@@ -3,3 +3,4 @@ Rails.application.routes.draw do
   resources :invoices, only: [:index, :new]
   root controller: :landing, action: :index
 end
+

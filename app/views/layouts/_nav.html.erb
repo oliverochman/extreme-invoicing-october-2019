@@ -1,6 +1,11 @@
 <nav>
-  <%= link_to 'EXTREME INVOICING', root_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'EXTREME INVOICING', invoices_path %>
+  <% else %>
+    <%= link_to 'EXTREME INVOICING', root_path %>
+  <% end %>
   <%= link_to 'Create invoice', invoices_path %>
-  <%= link_to 'Sign up'%>
-  <%= link_to 'Log in'%>
-</nav>
+  <%= link_to 'Sign up', new_user_registration_path if !user_signed_in? %>
+  <%= link_to 'Log in', new_user_session_path if !user_signed_in? %>
+  <%= link_to 'Log out', destroy_user_session_path, method: :delete if user_signed_in? %>
+</nav> 

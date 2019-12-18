@@ -10,7 +10,6 @@ Feature: User can create invoice
 
     And I am on the index page
 
-
   Scenario: Logged in user can create an invoice
     Given I am logged in as "user@user.com"
     And I click on "Create invoice"
