@@ -24,10 +24,17 @@ Feature: User can store its company data
     When I click on "Company Profile"
     And I fill in "Name" with ""
     And I click on "Update profile"
-    Then I should see "Something went wrong. Company Name is required."
+    Then I should see "Something went wrong. Name can't be blank"
 
   Scenario: User can view saved company information
     Given I am logged in as "google_exec@google.com"  
     And I am on the index page
     When I click on "Company Profile"
     And I should see "Google"
+
+  Scenario: User cant save company info is he has already done it
+    Given I am logged in as "google_exec@google.com"
+    And I am on the new company page
+    Then I should be on the Company Profile page
+    And I should see "You have already added your company information"
+  
